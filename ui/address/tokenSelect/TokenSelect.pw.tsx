@@ -4,7 +4,7 @@ import React from 'react';
 
 import * as coinBalanceMock from 'mocks/address/coinBalanceHistory';
 import * as tokensMock from 'mocks/address/tokens';
-import { tokenInfoERC20a } from 'mocks/tokens/tokenInfo';
+import { tokenInfoRAMA20a } from 'mocks/tokens/tokenInfo';
 import * as socketServer from 'playwright/fixtures/socketServer';
 import TestApp from 'playwright/TestApp';
 import buildApiUrl from 'playwright/utils/buildApiUrl';
@@ -12,10 +12,10 @@ import MockAddressPage from 'ui/address/testUtils/MockAddressPage';
 
 import TokenSelect from './TokenSelect';
 
-const ASSET_URL = tokenInfoERC20a.icon_url as string;
-const TOKENS_ERC20_API_URL = buildApiUrl('address_tokens', { hash: '1' }) + '?type=ERC-20';
-const TOKENS_ERC721_API_URL = buildApiUrl('address_tokens', { hash: '1' }) + '?type=ERC-721';
-const TOKENS_ER1155_API_URL = buildApiUrl('address_tokens', { hash: '1' }) + '?type=ERC-1155';
+const ASSET_URL = tokenInfoRAMA20a.icon_url as string;
+const TOKENS_RAMA20_API_URL = buildApiUrl('address_tokens', { hash: '1' }) + '?type=RAMA-20';
+const TOKENS_RAMA721_API_URL = buildApiUrl('address_tokens', { hash: '1' }) + '?type=RAMA-721';
+const TOKENS_ER1155_API_URL = buildApiUrl('address_tokens', { hash: '1' }) + '?type=RAMA-1155';
 const ADDRESS_API_URL = buildApiUrl('address', { hash: '1' });
 const hooksConfig = {
   router: {
@@ -36,11 +36,11 @@ const test = base.extend({
       status: 200,
       body: JSON.stringify({ hash: '1' }),
     }), { times: 1 });
-    await page.route(TOKENS_ERC20_API_URL, async(route) => route.fulfill({
+    await page.route(TOKENS_RAMA20_API_URL, async(route) => route.fulfill({
       status: 200,
       body: JSON.stringify(tokensMock.erc20List),
     }), { times: 1 });
-    await page.route(TOKENS_ERC721_API_URL, async(route) => route.fulfill({
+    await page.route(TOKENS_RAMA721_API_URL, async(route) => route.fulfill({
       status: 200,
       body: JSON.stringify(tokensMock.erc721List),
     }), { times: 1 });
@@ -109,13 +109,13 @@ test('sort', async({ mount, page }) => {
     { hooksConfig },
   );
   await page.getByRole('button', { name: /select/i }).click();
-  await page.locator('a[aria-label="Sort ERC-20 tokens"]').click();
+  await page.locator('a[aria-label="Sort RAMA-20 tokens"]').click();
 
   await expect(page).toHaveScreenshot({ clip: CLIPPING_AREA });
 
   await page.mouse.move(100, 200);
   await page.mouse.wheel(0, 1000);
-  await page.locator('a[aria-label="Sort ERC-1155 tokens"]').click();
+  await page.locator('a[aria-label="Sort RAMA-1155 tokens"]').click();
 
   await expect(page).toHaveScreenshot({ clip: CLIPPING_AREA });
 });
@@ -148,11 +148,11 @@ base('long values', async({ mount, page }) => {
     status: 200,
     body: JSON.stringify({ hash: '1' }),
   }), { times: 1 });
-  await page.route(TOKENS_ERC20_API_URL, async(route) => route.fulfill({
+  await page.route(TOKENS_RAMA20_API_URL, async(route) => route.fulfill({
     status: 200,
     body: JSON.stringify({ items: [ tokensMock.erc20LongSymbol ] }),
   }), { times: 1 });
-  await page.route(TOKENS_ERC721_API_URL, async(route) => route.fulfill({
+  await page.route(TOKENS_RAMA721_API_URL, async(route) => route.fulfill({
     status: 200,
     body: JSON.stringify({ items: [ tokensMock.erc721LongSymbol ] }),
   }), { times: 1 });
@@ -194,7 +194,7 @@ test.describe('socket', () => {
       { hooksConfig },
     );
 
-    await page.route(TOKENS_ERC20_API_URL, async(route) => route.fulfill({
+    await page.route(TOKENS_RAMA20_API_URL, async(route) => route.fulfill({
       status: 200,
       body: JSON.stringify({
         items: [
@@ -227,7 +227,7 @@ test.describe('socket', () => {
       { hooksConfig },
     );
 
-    await page.route(TOKENS_ERC20_API_URL, async(route) => route.fulfill({
+    await page.route(TOKENS_RAMA20_API_URL, async(route) => route.fulfill({
       status: 200,
       body: JSON.stringify({
         items: [

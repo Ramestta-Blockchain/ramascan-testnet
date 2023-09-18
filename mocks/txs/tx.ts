@@ -99,12 +99,12 @@ export const withTokenTransfer: Transaction = {
     watchlist_names: [ watchlistName ],
   },
   token_transfers: [
-    tokenTransferMock.erc20,
-    tokenTransferMock.erc721,
-    tokenTransferMock.erc1155A,
-    tokenTransferMock.erc1155B,
-    tokenTransferMock.erc1155C,
-    tokenTransferMock.erc1155D,
+    tokenTransferMock.RAMA20,
+    tokenTransferMock.RAMA721,
+    tokenTransferMock.RAMA1155A,
+    tokenTransferMock.RAMA1155B,
+    tokenTransferMock.RAMA1155C,
+    tokenTransferMock.RAMA1155D,
   ],
   tx_types: [
     'token_transfer',

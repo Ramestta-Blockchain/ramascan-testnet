@@ -2,7 +2,7 @@ import type { Address, AddressCoinBalanceHistoryItem, AddressCounters, AddressTa
 import type { AddressesItem } from 'types/api/addresses';
 
 import { ADDRESS_HASH } from './addressParams';
-import { TOKEN_INFO_ERC_1155, TOKEN_INFO_ERC_20, TOKEN_INFO_ERC_721, TOKEN_INSTANCE } from './token';
+import { TOKEN_INFO_RAMA_1155, TOKEN_INFO_RAMA_20, TOKEN_INFO_RAMA_721, TOKEN_INSTANCE } from './token';
 import { TX_HASH } from './tx';
 
 export const ADDRESS_INFO: Address = {
@@ -28,7 +28,7 @@ export const ADDRESS_INFO: Address = {
   is_contract: false,
   is_verified: false,
   name: 'ChainLink Token (goerli)',
-  token: TOKEN_INFO_ERC_20,
+  token: TOKEN_INFO_RAMA_20,
   private_tags: [],
   public_tags: [],
   watchlist_names: [],
@@ -74,22 +74,22 @@ export const ADDRESS_COIN_BALANCE: AddressCoinBalanceHistoryItem = {
   value: '953427250000000000000000',
 };
 
-export const ADDRESS_TOKEN_BALANCE_ERC_20: AddressTokenBalance = {
-  token: TOKEN_INFO_ERC_20,
+export const ADDRESS_TOKEN_BALANCE_RAMA_20: AddressTokenBalance = {
+  token: TOKEN_INFO_RAMA_20,
   token_id: null,
   token_instance: null,
   value: '1000000000000000000000000',
 };
 
-export const ADDRESS_TOKEN_BALANCE_ERC_721: AddressTokenBalance = {
-  token: TOKEN_INFO_ERC_721,
+export const ADDRESS_TOKEN_BALANCE_RAMA_721: AddressTokenBalance = {
+  token: TOKEN_INFO_RAMA_721,
   token_id: null,
   token_instance: null,
   value: '176',
 };
 
-export const ADDRESS_TOKEN_BALANCE_ERC_1155: AddressTokenBalance = {
-  token: TOKEN_INFO_ERC_1155,
+export const ADDRESS_TOKEN_BALANCE_RAMA_1155: AddressTokenBalance = {
+  token: TOKEN_INFO_RAMA_1155,
   token_id: '188882',
   token_instance: TOKEN_INSTANCE,
   value: '176',

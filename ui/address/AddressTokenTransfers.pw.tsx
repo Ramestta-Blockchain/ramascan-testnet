@@ -31,7 +31,7 @@ test.describe.configure({ mode: 'serial' });
 test('with token filter and pagination', async({ mount, page }) => {
   await page.route(API_URL, (route) => route.fulfill({
     status: 200,
-    body: JSON.stringify({ items: [ tokenTransferMock.erc1155A ], next_page_params: { block_number: 1 } }),
+    body: JSON.stringify({ items: [ tokenTransferMock.RAMA1155A ], next_page_params: { block_number: 1 } }),
   }));
 
   const component = await mount(
@@ -48,7 +48,7 @@ test('with token filter and pagination', async({ mount, page }) => {
 test('with token filter and no pagination', async({ mount, page }) => {
   await page.route(API_URL, (route) => route.fulfill({
     status: 200,
-    body: JSON.stringify({ items: [ tokenTransferMock.erc1155A ] }),
+    body: JSON.stringify({ items: [ tokenTransferMock.RAMA1155A ] }),
   }));
 
   const component = await mount(
@@ -68,7 +68,7 @@ test.describe('mobile', () => {
   test('with token filter and pagination', async({ mount, page }) => {
     await page.route(API_URL, (route) => route.fulfill({
       status: 200,
-      body: JSON.stringify({ items: [ tokenTransferMock.erc1155A ], next_page_params: { block_number: 1 } }),
+      body: JSON.stringify({ items: [ tokenTransferMock.RAMA1155A ], next_page_params: { block_number: 1 } }),
     }));
 
     const component = await mount(
@@ -85,7 +85,7 @@ test.describe('mobile', () => {
   test('with token filter and no pagination', async({ mount, page }) => {
     await page.route(API_URL, (route) => route.fulfill({
       status: 200,
-      body: JSON.stringify({ items: [ tokenTransferMock.erc1155A ] }),
+      body: JSON.stringify({ items: [ tokenTransferMock.RAMA1155A ] }),
     }));
 
     const component = await mount(
@@ -112,7 +112,7 @@ test.describe('socket', () => {
 
     await page.route(API_URL_NO_TOKEN, (route) => route.fulfill({
       status: 200,
-      body: JSON.stringify({ items: [ tokenTransferMock.erc1155A ], next_page_params: { block_number: 1 } }),
+      body: JSON.stringify({ items: [ tokenTransferMock.RAMA1155A ], next_page_params: { block_number: 1 } }),
     }));
 
     await mount(
@@ -129,7 +129,7 @@ test.describe('socket', () => {
     const itemsCount = await page.locator('tbody tr').count();
     expect(itemsCount).toBe(2);
 
-    socketServer.sendMessage(socket, channel, 'token_transfer', { token_transfers: [ tokenTransferMock.erc1155B, tokenTransferMock.erc1155C ] });
+    socketServer.sendMessage(socket, channel, 'token_transfer', { token_transfers: [ tokenTransferMock.RAMA1155B, tokenTransferMock.RAMA1155C ] });
 
     await page.waitForSelector('tbody tr:nth-child(3)');
 
@@ -148,7 +148,7 @@ test.describe('socket', () => {
 
     await page.route(API_URL_NO_TOKEN, (route) => route.fulfill({
       status: 200,
-      body: JSON.stringify({ items: [ tokenTransferMock.erc1155A ], next_page_params: { block_number: 1 } }),
+      body: JSON.stringify({ items: [ tokenTransferMock.RAMA1155A ], next_page_params: { block_number: 1 } }),
     }));
 
     await mount(
@@ -165,7 +165,7 @@ test.describe('socket', () => {
     const itemsCount = await page.locator('tbody tr').count();
     expect(itemsCount).toBe(2);
 
-    socketServer.sendMessage(socket, channel, 'token_transfer', { token_transfers: [ tokenTransferMock.erc1155B, tokenTransferMock.erc1155C ] });
+    socketServer.sendMessage(socket, channel, 'token_transfer', { token_transfers: [ tokenTransferMock.RAMA1155B, tokenTransferMock.RAMA1155C ] });
 
     await page.waitForSelector('tbody tr:nth-child(3)');
 
@@ -179,15 +179,15 @@ test.describe('socket', () => {
   test('without overload, with filters', async({ mount, page, createSocket }) => {
     const hooksConfigWithFilter = {
       router: {
-        query: { hash: CURRENT_ADDRESS, type: 'ERC-1155' },
+        query: { hash: CURRENT_ADDRESS, type: 'RAMA-1155' },
       },
     };
 
-    const API_URL_WITH_FILTER = buildApiUrl('address_token_transfers', { hash: CURRENT_ADDRESS }) + '?type=ERC-1155';
+    const API_URL_WITH_FILTER = buildApiUrl('address_token_transfers', { hash: CURRENT_ADDRESS }) + '?type=RAMA-1155';
 
     await page.route(API_URL_WITH_FILTER, (route) => route.fulfill({
       status: 200,
-      body: JSON.stringify({ items: [ tokenTransferMock.erc1155A ], next_page_params: { block_number: 1 } }),
+      body: JSON.stringify({ items: [ tokenTransferMock.RAMA1155A ], next_page_params: { block_number: 1 } }),
     }));
 
     await mount(
@@ -204,7 +204,7 @@ test.describe('socket', () => {
     const itemsCount = await page.locator('tbody tr').count();
     expect(itemsCount).toBe(2);
 
-    socketServer.sendMessage(socket, channel, 'token_transfer', { token_transfers: [ tokenTransferMock.erc1155B, tokenTransferMock.erc20 ] });
+    socketServer.sendMessage(socket, channel, 'token_transfer', { token_transfers: [ tokenTransferMock.RAMA1155B, tokenTransferMock.RAMA20 ] });
 
     await page.waitForSelector('tbody tr:nth-child(3)');
 
@@ -215,15 +215,15 @@ test.describe('socket', () => {
   test('with overload, with filters', async({ mount, page, createSocket }) => {
     const hooksConfigWithFilter = {
       router: {
-        query: { hash: CURRENT_ADDRESS, type: 'ERC-1155' },
+        query: { hash: CURRENT_ADDRESS, type: 'RAMA-1155' },
       },
     };
 
-    const API_URL_WITH_FILTER = buildApiUrl('address_token_transfers', { hash: CURRENT_ADDRESS }) + '?type=ERC-1155';
+    const API_URL_WITH_FILTER = buildApiUrl('address_token_transfers', { hash: CURRENT_ADDRESS }) + '?type=RAMA-1155';
 
     await page.route(API_URL_WITH_FILTER, (route) => route.fulfill({
       status: 200,
-      body: JSON.stringify({ items: [ tokenTransferMock.erc1155A ], next_page_params: { block_number: 1 } }),
+      body: JSON.stringify({ items: [ tokenTransferMock.RAMA1155A ], next_page_params: { block_number: 1 } }),
     }));
 
     await mount(
@@ -244,7 +244,7 @@ test.describe('socket', () => {
       socket,
       channel,
       'token_transfer',
-      { token_transfers: [ tokenTransferMock.erc1155B, tokenTransferMock.erc20, tokenTransferMock.erc1155C, tokenTransferMock.erc721 ] },
+      { token_transfers: [ tokenTransferMock.RAMA1155B, tokenTransferMock.RAMA20, tokenTransferMock.RAMA1155C, tokenTransferMock.RAMA721 ] },
     );
 
     await page.waitForSelector('tbody tr:nth-child(3)');

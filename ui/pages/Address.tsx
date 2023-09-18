@@ -31,9 +31,9 @@ import RoutedTabs from 'ui/shared/Tabs/RoutedTabs';
 import TabsSkeleton from 'ui/shared/Tabs/TabsSkeleton';
 
 export const tokenTabsByType: Record<TokenType, string> = {
-  'ERC-20': 'tokens_erc20',
-  'ERC-721': 'tokens_erc721',
-  'ERC-1155': 'tokens_erc1155',
+  'RAMA-20': 'tokens_erc20',
+  'RAMA-721': 'tokens_erc721',
+  'RAMA-1155': 'tokens_erc1155',
 } as const;
 
 const TOKEN_TABS = Object.values(tokenTabsByType);

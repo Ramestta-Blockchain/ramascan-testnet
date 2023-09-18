@@ -31,7 +31,7 @@ export const mintToken: TxStateChange = {
     name: 'ParaSpace Derivative Token MOONBIRD',
     symbol: 'nMOONBIRD',
     total_supply: '10645',
-    type: 'ERC-721',
+    type: 'RAMA-721',
     icon_url: null,
   },
   type: 'token',
@@ -68,7 +68,7 @@ export const receiveMintedToken: TxStateChange = {
     name: 'ParaSpace Derivative Token MOONBIRD',
     symbol: 'nMOONBIRD',
     total_supply: '10645',
-    type: 'ERC-721',
+    type: 'RAMA-721',
     icon_url: null,
   },
   type: 'token',
@@ -99,7 +99,7 @@ export const transfer1155Token: TxStateChange = {
     name: null,
     symbol: null,
     total_supply: null,
-    type: 'ERC-1155',
+    type: 'RAMA-1155',
   },
   token_id: '1',
   type: 'token',
@@ -143,7 +143,7 @@ export const sendCoin: TxStateChange = {
   type: 'coin',
 };
 
-export const sendERC20Token = {
+export const sendRAMA20Token = {
   address: {
     hash: '0x7f6479df95Aa3036a3BE02DB6300ea201ABd9981',
     implementation_name: null,
@@ -168,7 +168,7 @@ export const sendERC20Token = {
     name: 'Tether USD',
     symbol: 'USDT',
     total_supply: '39030615894320966',
-    type: 'ERC-20',
+    type: 'RAMA-20',
     token_id: null,
   },
   type: 'token',
@@ -181,7 +181,7 @@ export const baseResponse = {
     sendCoin,
     receiveCoin,
     transfer1155Token,
-    sendERC20Token,
+    sendRAMA20Token,
   ],
   next_page_params: {
     items_count: 50,

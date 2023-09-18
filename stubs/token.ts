@@ -6,7 +6,7 @@ import { BLOCK_HASH } from './block';
 import { TX_HASH } from './tx';
 import { generateListStub } from './utils';
 
-export const TOKEN_INFO_ERC_20: TokenInfo<'ERC-20'> = {
+export const TOKEN_INFO_RAMA_20: TokenInfo<'RAMA-20'> = {
   address: ADDRESS_HASH,
   circulating_market_cap: '117629601.61913824',
   decimals: '18',
@@ -15,20 +15,20 @@ export const TOKEN_INFO_ERC_20: TokenInfo<'ERC-20'> = {
   name: 'Stub Token (goerli)',
   symbol: 'STUB',
   total_supply: '60000000000000000000000',
-  type: 'ERC-20',
+  type: 'RAMA-20',
   icon_url: null,
 };
 
-export const TOKEN_INFO_ERC_721: TokenInfo<'ERC-721'> = {
-  ...TOKEN_INFO_ERC_20,
+export const TOKEN_INFO_RAMA_721: TokenInfo<'RAMA-721'> = {
+  ...TOKEN_INFO_RAMA_20,
   circulating_market_cap: null,
-  type: 'ERC-721',
+  type: 'RAMA-721',
 };
 
-export const TOKEN_INFO_ERC_1155: TokenInfo<'ERC-1155'> = {
-  ...TOKEN_INFO_ERC_20,
+export const TOKEN_INFO_RAMA_1155: TokenInfo<'RAMA-1155'> = {
+  ...TOKEN_INFO_RAMA_20,
   circulating_market_cap: null,
-  type: 'ERC-1155',
+  type: 'RAMA-1155',
 };
 
 export const TOKEN_COUNTERS: TokenCounters = {
@@ -41,14 +41,14 @@ export const TOKEN_HOLDER: TokenHolder = {
   value: '1021378038331138520',
 };
 
-export const TOKEN_TRANSFER_ERC_20: TokenTransfer = {
+export const TOKEN_TRANSFER_RAMA_20: TokenTransfer = {
   block_hash: BLOCK_HASH,
   from: ADDRESS_PARAMS,
   log_index: '4',
   method: 'addLiquidity',
   timestamp: '2022-06-24T10:22:11.000000Z',
   to: ADDRESS_PARAMS,
-  token: TOKEN_INFO_ERC_20,
+  token: TOKEN_INFO_RAMA_20,
   total: {
     decimals: '18',
     value: '9851351626684503',
@@ -57,32 +57,32 @@ export const TOKEN_TRANSFER_ERC_20: TokenTransfer = {
   type: 'token_minting',
 };
 
-export const TOKEN_TRANSFER_ERC_721: TokenTransfer = {
-  ...TOKEN_TRANSFER_ERC_20,
+export const TOKEN_TRANSFER_RAMA_721: TokenTransfer = {
+  ...TOKEN_TRANSFER_RAMA_20,
   total: {
     token_id: '35870',
   },
-  token: TOKEN_INFO_ERC_721,
+  token: TOKEN_INFO_RAMA_721,
 };
 
-export const TOKEN_TRANSFER_ERC_1155: TokenTransfer = {
-  ...TOKEN_TRANSFER_ERC_20,
+export const TOKEN_TRANSFER_RAMA_1155: TokenTransfer = {
+  ...TOKEN_TRANSFER_RAMA_20,
   total: {
     token_id: '35870',
     value: '123',
     decimals: '18',
   },
-  token: TOKEN_INFO_ERC_1155,
+  token: TOKEN_INFO_RAMA_1155,
 };
 
 export const getTokenTransfersStub = (type?: TokenType, pagination: TokenTransferPagination | null = null): TokenTransferResponse => {
   switch (type) {
-    case 'ERC-721':
-      return generateListStub<'token_transfers'>(TOKEN_TRANSFER_ERC_721, 50, { next_page_params: pagination });
-    case 'ERC-1155':
-      return generateListStub<'token_transfers'>(TOKEN_TRANSFER_ERC_1155, 50, { next_page_params: pagination });
+    case 'RAMA-721':
+      return generateListStub<'token_transfers'>(TOKEN_TRANSFER_RAMA_721, 50, { next_page_params: pagination });
+    case 'RAMA-1155':
+      return generateListStub<'token_transfers'>(TOKEN_TRANSFER_RAMA_1155, 50, { next_page_params: pagination });
     default:
-      return generateListStub<'token_transfers'>(TOKEN_TRANSFER_ERC_20, 50, { next_page_params: pagination });
+      return generateListStub<'token_transfers'>(TOKEN_TRANSFER_RAMA_20, 50, { next_page_params: pagination });
   }
 };
 
@@ -100,6 +100,6 @@ export const TOKEN_INSTANCE: TokenInstance = {
     name: 'GENESIS #188882, 8a77ca1bcaa4036f. Blockchain pixel PFP NFT + "on music video" trait inspired by God',
   },
   owner: ADDRESS_PARAMS,
-  token: TOKEN_INFO_ERC_1155,
+  token: TOKEN_INFO_RAMA_1155,
   holder_address_hash: ADDRESS_HASH,
 };

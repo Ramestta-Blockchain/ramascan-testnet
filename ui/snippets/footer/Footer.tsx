@@ -100,10 +100,10 @@ const Footer = () => {
           <NetworkAddToWallet/>
         </Flex>
         <Box mt={{ base: 5, lg: '44px' }}>
-          <Link fontSize="xs" href="https://www.blockscout.com">blockscout.com</Link>
+          <Link fontSize="xs" href="https://www.ramestta.com/">ramestta.com</Link>
         </Box>
         <Text mt={ 3 } maxW={{ base: 'unset', lg: '470px' }} fontSize="xs">
-            Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks.
+        Ramestta is a PoS Blockchain with layer 2 solution for building dApp and connecting EVM-compatible blockchain, it a faster Blockahin for the Future.
         </Text>
         <VStack spacing={ 1 } mt={ 6 } alignItems="start">
           { apiVersionUrl && (

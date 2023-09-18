@@ -13,16 +13,16 @@ import useIsMobile from 'lib/hooks/useIsMobile';
 import getQueryParamString from 'lib/router/getQueryParamString';
 import useSocketChannel from 'lib/socket/useSocketChannel';
 import useSocketMessage from 'lib/socket/useSocketMessage';
-import { ADDRESS_TOKEN_BALANCE_ERC_1155, ADDRESS_TOKEN_BALANCE_ERC_20, ADDRESS_TOKEN_BALANCE_ERC_721 } from 'stubs/address';
+import { ADDRESS_TOKEN_BALANCE_RAMA_1155, ADDRESS_TOKEN_BALANCE_RAMA_20, ADDRESS_TOKEN_BALANCE_RAMA_721 } from 'stubs/address';
 import { generateListStub } from 'stubs/utils';
 import { tokenTabsByType } from 'ui/pages/Address';
 import Pagination from 'ui/shared/pagination/Pagination';
 import useQueryWithPages from 'ui/shared/pagination/useQueryWithPages';
 import RoutedTabs from 'ui/shared/Tabs/RoutedTabs';
 
-import ERC1155Tokens from './tokens/ERC1155Tokens';
-import ERC20Tokens from './tokens/ERC20Tokens';
-import ERC721Tokens from './tokens/ERC721Tokens';
+import RAMA1155Tokens from './tokens/ERC1155Tokens';
+import RAMA20Tokens from './tokens/ERC20Tokens';
+import RAMA721Tokens from './tokens/ERC721Tokens';
 import TokenBalances from './tokens/TokenBalances';
 
 const TAB_LIST_PROPS = {
@@ -55,33 +55,33 @@ const AddressTokens = () => {
   const erc20Query = useQueryWithPages({
     resourceName: 'address_tokens',
     pathParams: { hash },
-    filters: { type: 'ERC-20' },
+    filters: { type: 'RAMA-20' },
     scrollRef,
     options: {
       refetchOnMount: false,
-      placeholderData: generateListStub<'address_tokens'>(ADDRESS_TOKEN_BALANCE_ERC_20, 10, { next_page_params: null }),
+      placeholderData: generateListStub<'address_tokens'>(ADDRESS_TOKEN_BALANCE_RAMA_20, 10, { next_page_params: null }),
     },
   });
 
   const erc721Query = useQueryWithPages({
     resourceName: 'address_tokens',
     pathParams: { hash },
-    filters: { type: 'ERC-721' },
+    filters: { type: 'RAMA-721' },
     scrollRef,
     options: {
       refetchOnMount: false,
-      placeholderData: generateListStub<'address_tokens'>(ADDRESS_TOKEN_BALANCE_ERC_721, 10, { next_page_params: null }),
+      placeholderData: generateListStub<'address_tokens'>(ADDRESS_TOKEN_BALANCE_RAMA_721, 10, { next_page_params: null }),
     },
   });
 
   const erc1155Query = useQueryWithPages({
     resourceName: 'address_tokens',
     pathParams: { hash },
-    filters: { type: 'ERC-1155' },
+    filters: { type: 'RAMA-1155' },
     scrollRef,
     options: {
       refetchOnMount: false,
-      placeholderData: generateListStub<'address_tokens'>(ADDRESS_TOKEN_BALANCE_ERC_1155, 10, { next_page_params: null }),
+      placeholderData: generateListStub<'address_tokens'>(ADDRESS_TOKEN_BALANCE_RAMA_1155, 10, { next_page_params: null }),
     },
   });
 
@@ -115,15 +115,15 @@ const AddressTokens = () => {
   }, [ hash, queryClient ]);
 
   const handleTokenBalancesErc20Message: SocketMessage.AddressTokenBalancesErc20['handler'] = React.useCallback((payload) => {
-    updateTokensData('ERC-20', payload);
+    updateTokensData('RAMA-20', payload);
   }, [ updateTokensData ]);
 
   const handleTokenBalancesErc721Message: SocketMessage.AddressTokenBalancesErc721['handler'] = React.useCallback((payload) => {
-    updateTokensData('ERC-721', payload);
+    updateTokensData('RAMA-721', payload);
   }, [ updateTokensData ]);
 
   const handleTokenBalancesErc1155Message: SocketMessage.AddressTokenBalancesErc1155['handler'] = React.useCallback((payload) => {
-    updateTokensData('ERC-1155', payload);
+    updateTokensData('RAMA-1155', payload);
   }, [ updateTokensData ]);
 
   const channel = useSocketChannel({
@@ -148,16 +148,16 @@ const AddressTokens = () => {
   });
 
   const tabs = [
-    { id: tokenTabsByType['ERC-20'], title: 'ERC-20', component: <ERC20Tokens tokensQuery={ erc20Query }/> },
-    { id: tokenTabsByType['ERC-721'], title: 'ERC-721', component: <ERC721Tokens tokensQuery={ erc721Query }/> },
-    { id: tokenTabsByType['ERC-1155'], title: 'ERC-1155', component: <ERC1155Tokens tokensQuery={ erc1155Query }/> },
+    { id: tokenTabsByType['RAMA-20'], title: 'RAMA-20', component: <RAMA20Tokens tokensQuery={ erc20Query }/> },
+    { id: tokenTabsByType['RAMA-721'], title: 'RAMA-721', component: <RAMA721Tokens tokensQuery={ erc721Query }/> },
+    { id: tokenTabsByType['RAMA-1155'], title: 'RAMA-1155', component: <RAMA1155Tokens tokensQuery={ erc1155Query }/> },
   ];
 
   let pagination: PaginationParams | undefined;
 
-  if (tab === tokenTabsByType['ERC-1155']) {
+  if (tab === tokenTabsByType['RAMA-1155']) {
     pagination = erc1155Query.pagination;
-  } else if (tab === tokenTabsByType['ERC-721']) {
+  } else if (tab === tokenTabsByType['RAMA-721']) {
     pagination = erc721Query.pagination;
   } else {
     pagination = erc20Query.pagination;

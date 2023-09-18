@@ -4,91 +4,91 @@ import * as tokens from 'mocks/tokens/tokenInfo';
 import * as tokenInstance from 'mocks/tokens/tokenInstance';
 
 export const erc20a: AddressTokenBalance = {
-  token: tokens.tokenInfoERC20a,
+  token: tokens.tokenInfoRAMA20a,
   token_id: null,
   value: '1169320000000000000000000',
   token_instance: null,
 };
 
 export const erc20b: AddressTokenBalance = {
-  token: tokens.tokenInfoERC20b,
+  token: tokens.tokenInfoRAMA20b,
   token_id: null,
   value: '872500000000',
   token_instance: null,
 };
 
 export const erc20c: AddressTokenBalance = {
-  token: tokens.tokenInfoERC20c,
+  token: tokens.tokenInfoRAMA20c,
   token_id: null,
   value: '9852000000000000000000',
   token_instance: null,
 };
 
 export const erc20d: AddressTokenBalance = {
-  token: tokens.tokenInfoERC20d,
+  token: tokens.tokenInfoRAMA20d,
   token_id: null,
   value: '39000000000000000000',
   token_instance: null,
 };
 
 export const erc20LongSymbol: AddressTokenBalance = {
-  token: tokens.tokenInfoERC20LongSymbol,
+  token: tokens.tokenInfoRAMA20LongSymbol,
   token_id: null,
   value: '39000000000000000000',
   token_instance: null,
 };
 
 export const erc721a: AddressTokenBalance = {
-  token: tokens.tokenInfoERC721a,
+  token: tokens.tokenInfoRAMA721a,
   token_id: null,
   value: '51',
   token_instance: null,
 };
 
 export const erc721b: AddressTokenBalance = {
-  token: tokens.tokenInfoERC721b,
+  token: tokens.tokenInfoRAMA721b,
   token_id: null,
   value: '1',
   token_instance: null,
 };
 
 export const erc721c: AddressTokenBalance = {
-  token: tokens.tokenInfoERC721c,
+  token: tokens.tokenInfoRAMA721c,
   token_id: null,
   value: '5',
   token_instance: null,
 };
 
 export const erc721LongSymbol: AddressTokenBalance = {
-  token: tokens.tokenInfoERC721LongSymbol,
+  token: tokens.tokenInfoRAMA721LongSymbol,
   token_id: null,
   value: '5',
   token_instance: null,
 };
 
 export const erc1155a: AddressTokenBalance = {
-  token: tokens.tokenInfoERC1155a,
+  token: tokens.tokenInfoRAMA1155a,
   token_id: '42',
   token_instance: tokenInstance.base,
   value: '24',
 };
 
 export const erc1155b: AddressTokenBalance = {
-  token: tokens.tokenInfoERC1155b,
+  token: tokens.tokenInfoRAMA1155b,
   token_id: '100010000000001',
   token_instance: tokenInstance.base,
   value: '11',
 };
 
 export const erc1155withoutName: AddressTokenBalance = {
-  token: tokens.tokenInfoERC1155WithoutName,
+  token: tokens.tokenInfoRAMA1155WithoutName,
   token_id: '64532245',
   token_instance: tokenInstance.base,
   value: '42',
 };
 
 export const erc1155LongId: AddressTokenBalance = {
-  token: tokens.tokenInfoERC1155b,
+  token: tokens.tokenInfoRAMA1155b,
   token_id: '483200961027732618117991942553110860267520',
   token_instance: tokenInstance.base,
   value: '42',

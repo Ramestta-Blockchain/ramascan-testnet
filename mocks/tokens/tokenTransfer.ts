@@ -1,6 +1,6 @@
 import type { TokenTransfer, TokenTransferResponse } from 'types/api/tokenTransfer';
 
-export const erc20: TokenTransfer = {
+export const RAMA20: TokenTransfer = {
   from: {
     hash: '0xd789a607CEac2f0E14867de4EB15b15C9FFB5859',
     implementation_name: null,
@@ -29,7 +29,7 @@ export const erc20: TokenTransfer = {
     holders: '46554',
     name: 'ARIANEE',
     symbol: 'ARIA',
-    type: 'ERC-20',
+    type: 'RAMA-20',
     total_supply: '0',
     icon_url: null,
   },
@@ -45,7 +45,7 @@ export const erc20: TokenTransfer = {
   method: 'updateSmartAsset',
 };
 
-export const erc721: TokenTransfer = {
+export const RAMA721: TokenTransfer = {
   from: {
     hash: '0x621C2a125ec4A6D8A7C7A655A18a2868d35eb43C',
     implementation_name: null,
@@ -74,7 +74,7 @@ export const erc721: TokenTransfer = {
     holders: '63090',
     name: 'Arianee Smart-Asset',
     symbol: 'AriaSA',
-    type: 'ERC-721',
+    type: 'RAMA-721',
     total_supply: '0',
     icon_url: null,
   },
@@ -89,7 +89,7 @@ export const erc721: TokenTransfer = {
   method: 'updateSmartAsset',
 };
 
-export const erc1155A: TokenTransfer = {
+export const RAMA1155A: TokenTransfer = {
   from: {
     hash: '0x0000000000000000000000000000000000000000',
     implementation_name: null,
@@ -118,7 +118,7 @@ export const erc1155A: TokenTransfer = {
     holders: '1',
     name: null,
     symbol: 'MY_SYMBOL_IS_VERY_LONG',
-    type: 'ERC-1155',
+    type: 'RAMA-1155',
     total_supply: '0',
     icon_url: null,
   },
@@ -134,30 +134,30 @@ export const erc1155A: TokenTransfer = {
   log_index: '1',
 };
 
-export const erc1155B: TokenTransfer = {
-  ...erc1155A,
+export const RAMA1155B: TokenTransfer = {
+  ...RAMA1155A,
   token: {
-    ...erc1155A.token,
+    ...RAMA1155A.token,
     name: 'SastanaNFT',
     symbol: 'ipfs://QmUpFUfVKDCWeZQk5pvDFUxnpQP9N6eLSHhNUy49T1JVtY',
   },
   total: { token_id: '12345678', value: '100000000000000000000', decimals: null },
 };
 
-export const erc1155C: TokenTransfer = {
-  ...erc1155A,
+export const RAMA1155C: TokenTransfer = {
+  ...RAMA1155A,
   token: {
-    ...erc1155A.token,
+    ...RAMA1155A.token,
     name: 'SastanaNFT',
     symbol: 'ipfs://QmUpFUfVKDCWeZQk5pvDFUxnpQP9N6eLSHhNUy49T1JVtY',
   },
   total: { token_id: '483200961027732618117991942553110860267520', value: '200000000000000000000', decimals: null },
 };
 
-export const erc1155D: TokenTransfer = {
-  ...erc1155A,
+export const RAMA1155D: TokenTransfer = {
+  ...RAMA1155A,
   token: {
-    ...erc1155A.token,
+    ...RAMA1155A.token,
     name: 'SastanaNFT',
     symbol: 'ipfs://QmUpFUfVKDCWeZQk5pvDFUxnpQP9N6eLSHhNUy49T1JVtY',
   },
@@ -166,12 +166,12 @@ export const erc1155D: TokenTransfer = {
 
 export const mixTokens: TokenTransferResponse = {
   items: [
-    erc20,
-    erc721,
-    erc1155A,
-    erc1155B,
-    erc1155C,
-    erc1155D,
+    RAMA20,
+    RAMA721,
+    RAMA1155A,
+    RAMA1155B,
+    RAMA1155C,
+    RAMA1155D,
   ],
   next_page_params: null,
 };

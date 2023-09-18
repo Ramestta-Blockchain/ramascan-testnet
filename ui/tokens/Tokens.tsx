@@ -11,7 +11,7 @@ import getFilterValuesFromQuery from 'lib/getFilterValuesFromQuery';
 import useDebounce from 'lib/hooks/useDebounce';
 import { apos } from 'lib/html-entities';
 import TOKEN_TYPE from 'lib/token/tokenTypes';
-import { TOKEN_INFO_ERC_20 } from 'stubs/token';
+import { TOKEN_INFO_RAMA_20 } from 'stubs/token';
 import { generateListStub } from 'stubs/utils';
 import ActionBar from 'ui/shared/ActionBar';
 import DataFetchAlert from 'ui/shared/DataFetchAlert';
@@ -76,7 +76,7 @@ const Tokens = () => {
     sorting: getSortParamsFromValue(sorting),
     options: {
       placeholderData: generateListStub<'tokens'>(
-        TOKEN_INFO_ERC_20,
+        TOKEN_INFO_RAMA_20,
         50,
         {
           next_page_params: {
@@ -151,7 +151,7 @@ const Tokens = () => {
       <Show below="lg" ssr={ false }>
         { data.items.map((item, index) => (
           <TokensListItem
-            key={ item.address + (isPlaceholderData ? index : '') }
+            key={ item?.address + (isPlaceholderData ? index : '') }
             token={ item }
             index={ index }
             page={ pagination.page }

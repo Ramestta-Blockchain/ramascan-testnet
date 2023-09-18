@@ -18,7 +18,7 @@ const TxDetailsTokenTransfer = ({ data }: Props) => {
 
   const content = (() => {
     switch (data.token.type) {
-      case 'ERC-20': {
+      case 'RAMA-20': {
         const total = data.total as Erc20TotalPayload;
         return (
           <Flex flexWrap="wrap" columnGap={ 3 } rowGap={ 2 }>
@@ -36,7 +36,7 @@ const TxDetailsTokenTransfer = ({ data }: Props) => {
         );
       }
 
-      case 'ERC-721': {
+      case 'RAMA-721': {
         const total = data.total as Erc721TotalPayload;
         return (
           <NftTokenTransferSnippet
@@ -47,7 +47,7 @@ const TxDetailsTokenTransfer = ({ data }: Props) => {
         );
       }
 
-      case 'ERC-1155': {
+      case 'RAMA-1155': {
         const total = data.total as Erc1155TotalPayload;
         return (
           <NftTokenTransferSnippet

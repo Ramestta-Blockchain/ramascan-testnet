@@ -1,7 +1,7 @@
 import type { TxStateChange } from 'types/api/txStateChanges';
 
 import { ADDRESS_PARAMS } from './addressParams';
-import { TOKEN_INFO_ERC_721 } from './token';
+import { TOKEN_INFO_RAMA_721 } from './token';
 
 export const STATE_CHANGE_MINER: TxStateChange = {
   address: ADDRESS_PARAMS,
@@ -36,7 +36,7 @@ export const STATE_CHANGE_TOKEN: TxStateChange = {
     },
   ],
   is_miner: false,
-  token: TOKEN_INFO_ERC_721,
+  token: TOKEN_INFO_RAMA_721,
   type: 'token',
 };
 

@@ -2,7 +2,7 @@
 import type { TokenInstance } from 'types/api/token';
 
 import * as addressMock from '../address/address';
-import { tokenInfoERC721a } from './tokenInfo';
+import { tokenInfoRAMA721a } from './tokenInfo';
 
 export const base: TokenInstance = {
   animation_url: null,
@@ -74,7 +74,7 @@ export const base: TokenInstance = {
     name: 'GENESIS #188848, 22a5f8bbb1602995. Blockchain pixel PFP NFT + "on music video" trait inspired by God',
   },
   owner: addressMock.withName,
-  token: tokenInfoERC721a,
+  token: tokenInfoRAMA721a,
 };
 
 export const withRichMetadata: TokenInstance = {
