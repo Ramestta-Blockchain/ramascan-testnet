@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 
 import type { SocketMessage } from 'lib/socket/types';
-import type { TokenInfo } from 'types/api/token';
+import type { TokenInfo, TokenInventoryResponse, TokenType } from 'types/api/token';
 import type { PaginationParams } from 'ui/shared/pagination/types';
 import type { RoutedTab } from 'ui/shared/Tabs/types';
 
@@ -19,6 +19,7 @@ import * as metadata from 'lib/metadata';
 import getQueryParamString from 'lib/router/getQueryParamString';
 import useSocketChannel from 'lib/socket/useSocketChannel';
 import useSocketMessage from 'lib/socket/useSocketMessage';
+import replaceTokenType from 'lib/token/replaceTokenType';
 import * as addressStubs from 'stubs/address';
 import * as tokenStubs from 'stubs/token';
 import { generateListStub } from 'stubs/utils';
@@ -61,6 +62,12 @@ const TokenPageContent = () => {
     queryOptions: {
       enabled: Boolean(router.query.hash),
       placeholderData: tokenStubs.TOKEN_INFO_RAMA_20,
+      select: (data: TokenInfo<TokenType>) => {
+        return {
+          ...data,
+          type: replaceTokenType(data.type),
+        };
+      },
     },
   });
 
@@ -148,6 +155,21 @@ const TokenPageContent = () => {
         ),
       ),
       placeholderData: generateListStub<'token_inventory'>(tokenStubs.TOKEN_INSTANCE, 50, { next_page_params: null }),
+      select: (data: TokenInventoryResponse): TokenInventoryResponse => {
+        return {
+          items: data.items.map((item) => {
+            return {
+              ...item,
+              token: {
+                ...item.token,
+                type: replaceTokenType(item.token.type),
+              },
+            };
+          }),
+          next_page_params: data.next_page_params,
+        };
+
+      },
     },
   });
 

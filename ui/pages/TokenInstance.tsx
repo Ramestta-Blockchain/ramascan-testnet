@@ -2,6 +2,7 @@ import { Box, Icon, Skeleton } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
+import type { TokenInstance } from 'types/api/token';
 import type { PaginationParams } from 'ui/shared/pagination/types';
 import type { RoutedTab } from 'ui/shared/Tabs/types';
 
@@ -11,6 +12,7 @@ import { useAppContext } from 'lib/contexts/app';
 import useIsMobile from 'lib/hooks/useIsMobile';
 import * as metadata from 'lib/metadata';
 import * as regexp from 'lib/regexp';
+import replaceTokenType from 'lib/token/replaceTokenType';
 import { TOKEN_INSTANCE } from 'stubs/token';
 import * as tokenStubs from 'stubs/token';
 import { generateListStub } from 'stubs/utils';
@@ -46,6 +48,15 @@ const TokenInstanceContent = () => {
     queryOptions: {
       enabled: Boolean(hash && id),
       placeholderData: TOKEN_INSTANCE,
+      select: (data: TokenInstance): TokenInstance => {
+        return {
+          ...data,
+          token: {
+            ...data.token,
+            type: replaceTokenType(data.token.type),
+          },
+        };
+      },
     },
   });
 

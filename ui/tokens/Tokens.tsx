@@ -3,13 +3,14 @@ import { useRouter } from 'next/router';
 import React, { useCallback } from 'react';
 
 import type { TokenType } from 'types/api/token';
-import type { TokensSorting } from 'types/api/tokens';
+import type { TokensResponse, TokensSorting } from 'types/api/tokens';
 
 import type { Query } from 'nextjs-routes';
 
 import getFilterValuesFromQuery from 'lib/getFilterValuesFromQuery';
 import useDebounce from 'lib/hooks/useDebounce';
 import { apos } from 'lib/html-entities';
+import replaceTokenType from 'lib/token/replaceTokenType';
 import TOKEN_TYPE from 'lib/token/tokenTypes';
 import { TOKEN_INFO_RAMA_20 } from 'stubs/token';
 import { generateListStub } from 'stubs/utils';
@@ -87,6 +88,21 @@ const Tokens = () => {
           },
         },
       ),
+      select: (data: TokensResponse) => {
+        return {
+          items: data.items.map((item) => {
+            return {
+              ...item,
+              token: {
+                ...item,
+                type: replaceTokenType(item.type),
+              },
+              type: replaceTokenType(item.type),
+            };
+          }),
+          next_page_params: data.next_page_params,
+        };
+      },
     },
   });
 
@@ -150,6 +166,7 @@ const Tokens = () => {
     <>
       <Show below="lg" ssr={ false }>
         { data.items.map((item, index) => (
+
           <TokensListItem
             key={ item?.address + (isPlaceholderData ? index : '') }
             token={ item }

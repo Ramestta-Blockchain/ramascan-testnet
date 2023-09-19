@@ -5,11 +5,13 @@ import React from 'react';
 import type { CustomLinksGroup } from 'types/footerLinks';
 
 import config from 'configs/app';
-import discussionsIcon from 'icons/discussions.svg';
 import editIcon from 'icons/edit.svg';
 import cannyIcon from 'icons/social/canny.svg';
-import discordIcon from 'icons/social/discord.svg';
+import facebook_filled from 'icons/social/facebook_filled.svg';
 import gitIcon from 'icons/social/git.svg';
+import linkedin_filled from 'icons/social/linkedin_filled.svg';
+import reddit_filled from 'icons/social/reddit_filled.svg';
+import telegram_filled from 'icons/social/telegram_filled.svg';
 import twitterIcon from 'icons/social/tweet.svg';
 import type { ResourceError } from 'lib/api/resources';
 import useApiQuery from 'lib/api/useApiQuery';
@@ -46,31 +48,43 @@ const Footer = () => {
       icon: cannyIcon,
       iconSize: '20px',
       text: 'Feature request',
-      url: 'https://blockscout.canny.io/feature-requests',
+      url: 'https://www.ramestta.com/',
     },
     {
       icon: gitIcon,
       iconSize: '18px',
       text: 'Contribute',
-      url: 'https://github.com/blockscout/blockscout',
+      url: 'https://github.com/Ramestta-Blockchain/ramascan',
     },
     {
       icon: twitterIcon,
       iconSize: '18px',
       text: 'Twitter',
-      url: 'https://www.twitter.com/blockscoutcom',
+      url: 'https://www.twitter.com/Ramestta',
     },
     {
-      icon: discordIcon,
+      icon: linkedin_filled,
       iconSize: '18px',
-      text: 'Discord',
-      url: 'https://discord.gg/blockscout',
+      text: 'LinkedIn',
+      url: 'https://www.linkedin.com/company/ramestta/',
     },
     {
-      icon: discussionsIcon,
-      iconSize: '20px',
-      text: 'Discussions',
-      url: 'https://github.com/orgs/blockscout/discussions',
+      icon: telegram_filled,
+      iconSize: '18px',
+      text: 'Telegram',
+      url: 'https://t.me/ramestta_blockchain',
+    },
+    {
+      icon: reddit_filled,
+      iconSize: '18px',
+      text: 'Reddit',
+      url: 'https://www.reddit.com/user/Ramestta/',
+    },
+    {
+      icon: facebook_filled,
+      iconSize: '18px',
+      text: 'Facebook',
+      url: 'https://www.facebook.com/Ramestta',
     },
   ];
 

@@ -35,6 +35,20 @@ export default function useFetchTxInfo({ onTxStatusUpdate, updateDelay }: Params
       enabled: Boolean(hash),
       refetchOnMount: false,
       placeholderData: TX,
+      // select :(data : Transaction):Transaction => {
+      //   return {
+      //     items: data.items.map((item) => {
+      //       return {
+      //         ...item,
+      //         token:{
+      //             ...item.token,
+      //             type:replaceTokenType(item.token.type)
+      //           }
+      //         }
+      //      }) as TokenTransfer[],
+      //     next_page_params: data.next_page_params
+      //   }
+      // }
     },
   });
   const { data, isError, isLoading } = queryResult;

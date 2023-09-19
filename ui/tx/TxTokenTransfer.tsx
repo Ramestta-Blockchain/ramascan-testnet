@@ -3,10 +3,12 @@ import { useRouter } from 'next/router';
 import React from 'react';
 
 import type { TokenType } from 'types/api/token';
+import type { TokenTransfer, TokenTransferResponse } from 'types/api/tokenTransfer';
 
 import { SECOND } from 'lib/consts';
 import getFilterValuesFromQuery from 'lib/getFilterValuesFromQuery';
 import { apos } from 'lib/html-entities';
+import replaceTokenType from 'lib/token/replaceTokenType';
 import TOKEN_TYPE from 'lib/token/tokenTypes';
 import { getTokenTransfersStub } from 'stubs/token';
 import ActionBar from 'ui/shared/ActionBar';
@@ -38,6 +40,20 @@ const TxTokenTransfer = () => {
     options: {
       enabled: !txsInfo.isPlaceholderData && Boolean(txsInfo.data?.status && txsInfo.data?.hash),
       placeholderData: getTokenTransfersStub(),
+      select: (data: TokenTransferResponse): TokenTransferResponse => {
+        return {
+          items: data.items.map((item) => {
+            return {
+              ...item,
+              token: {
+                ...item.token,
+                type: replaceTokenType(item.token.type),
+              },
+            };
+          }) as Array<TokenTransfer>,
+          next_page_params: data.next_page_params,
+        };
+      },
     },
     filters: { type: typeFilter },
   });

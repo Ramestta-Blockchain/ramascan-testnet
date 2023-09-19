@@ -22,6 +22,7 @@ interface ItemProps {
 }
 
 const Item = ({ data, isLoading }: ItemProps) => {
+
   const attributeBgColor = useColorModeValue('blackAlpha.50', 'whiteAlpha.50');
 
   const value = (() => {

@@ -12,9 +12,9 @@ const API_URL_TOKENS = buildApiUrl('tokens');
 
 const tokensResponse = {
   items: [
-    tokens.tokenInfoERC20a, tokens.tokenInfoERC20b, tokens.tokenInfoERC20c, tokens.tokenInfoERC20d,
-    tokens.tokenInfoERC721a, tokens.tokenInfoERC721b, tokens.tokenInfoERC721c,
-    tokens.tokenInfoERC1155a, tokens.tokenInfoERC1155b, tokens.tokenInfoERC1155WithoutName,
+    tokens.tokenInfoRAMA20a, tokens.tokenInfoRAMA20b, tokens.tokenInfoRAMA20c, tokens.tokenInfoRAMA20d,
+    tokens.tokenInfoRAMA721a, tokens.tokenInfoRAMA721b, tokens.tokenInfoRAMA721c,
+    tokens.tokenInfoRAMA1155a, tokens.tokenInfoRAMA1155b, tokens.tokenInfoRAMA1155WithoutName,
   ],
   next_page_params: {
     holder_count: 1,
