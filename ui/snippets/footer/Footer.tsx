@@ -6,13 +6,13 @@ import type { CustomLinksGroup } from 'types/footerLinks';
 
 import config from 'configs/app';
 import editIcon from 'icons/edit.svg';
-import cannyIcon from 'icons/social/canny.svg';
 import facebook_filled from 'icons/social/facebook_filled.svg';
 import gitIcon from 'icons/social/git.svg';
+import instagram from 'icons/social/instagram.svg';
 import linkedin_filled from 'icons/social/linkedin_filled.svg';
 import reddit_filled from 'icons/social/reddit_filled.svg';
 import telegram_filled from 'icons/social/telegram_filled.svg';
-import twitterIcon from 'icons/social/tweet.svg';
+import youtube from 'icons/social/youtube.svg';
 import type { ResourceError } from 'lib/api/resources';
 import useApiQuery from 'lib/api/useApiQuery';
 import useFetch from 'lib/hooks/useFetch';
@@ -45,22 +45,22 @@ const Footer = () => {
       url: issueUrl,
     },
     {
-      icon: cannyIcon,
-      iconSize: '20px',
-      text: 'Feature request',
-      url: 'https://www.ramestta.com/',
-    },
-    {
       icon: gitIcon,
       iconSize: '18px',
       text: 'Contribute',
       url: 'https://github.com/Ramestta-Blockchain/ramascan',
     },
     {
-      icon: twitterIcon,
-      iconSize: '18px',
-      text: 'Twitter',
-      url: 'https://www.twitter.com/Ramestta',
+      icon: youtube,
+      iconSize: '15px',
+      text: 'Youtube',
+      url: 'https://www.youtube.com/@ramestta6851/featured',
+    },
+    {
+      icon: instagram,
+      iconSize: '15px',
+      text: 'Instagram',
+      url: 'https://www.instagram.com/ramestta/',
     },
     {
       icon: linkedin_filled,
@@ -75,16 +75,16 @@ const Footer = () => {
       url: 'https://t.me/ramestta_blockchain',
     },
     {
-      icon: reddit_filled,
-      iconSize: '18px',
-      text: 'Reddit',
-      url: 'https://www.reddit.com/user/Ramestta/',
-    },
-    {
       icon: facebook_filled,
       iconSize: '18px',
       text: 'Facebook',
       url: 'https://www.facebook.com/Ramestta',
+    },
+    {
+      icon: reddit_filled,
+      iconSize: '18px',
+      text: 'Reddit',
+      url: 'https://www.reddit.com/user/Ramestta/',
     },
   ];
 

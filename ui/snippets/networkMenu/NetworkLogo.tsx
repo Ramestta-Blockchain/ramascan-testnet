@@ -48,7 +48,6 @@ const NetworkLogo = ({ isCollapsed, onClick }: Props) => {
   const darkModeFilter = { filter: 'brightness(0) invert(1)' };
   const logoStyle = useColorModeValue({}, !config.UI.sidebar.logo.dark ? darkModeFilter : {});
   const iconStyle = useColorModeValue({}, !config.UI.sidebar.icon.dark ? darkModeFilter : {});
-
   return (
     // TODO switch to <NextLink href={ href } passHref> when main page for network will be ready
     <Box
