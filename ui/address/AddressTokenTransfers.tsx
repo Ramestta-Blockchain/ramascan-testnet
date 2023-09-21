@@ -18,6 +18,7 @@ import { apos } from 'lib/html-entities';
 import getQueryParamString from 'lib/router/getQueryParamString';
 import useSocketChannel from 'lib/socket/useSocketChannel';
 import useSocketMessage from 'lib/socket/useSocketMessage';
+import replaceTokenType from 'lib/token/replaceTokenType';
 import TOKEN_TYPE from 'lib/token/tokenTypes';
 import { getTokenTransfersStub } from 'stubs/token';
 import ActionBar from 'ui/shared/ActionBar';
@@ -99,12 +100,31 @@ const AddressTokenTransfers = ({ scrollRef, overloadCount = OVERLOAD_COUNT }: Pr
         index: 46,
         items_count: 50,
       }),
+      select: (data: AddressTokenTransferResponse): AddressTokenTransferResponse => {
+        return {
+          items: data.items.map((item) => {
+            return {
+              ...item,
+              token: {
+                ...item.token,
+                type: replaceTokenType(item.token.type),
+              },
+            } as TokenTransfer;
+          }),
+          next_page_params: data.next_page_params,
+        };
+      },
     },
   });
 
   const handleTypeFilterChange = React.useCallback((nextValue: Array<TokenType>) => {
     onFilterChange({ ...filters, type: nextValue });
-    setFilters((prevState) => ({ ...prevState, type: nextValue }));
+    const chnageValue: Array<TokenType> = nextValue.map((item: TokenType) => {
+      return replaceTokenType(item);
+
+    });
+
+    setFilters((prevState) => ({ ...prevState, type: chnageValue }));
   }, [ filters, onFilterChange ]);
 
   const handleAddressFilterChange = React.useCallback((nextValue: string) => {

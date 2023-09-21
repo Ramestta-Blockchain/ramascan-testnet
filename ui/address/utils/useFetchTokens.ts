@@ -1,6 +1,9 @@
 import React from 'react';
 
+import type { AddressTokensResponse } from 'types/api/address';
+
 import useApiQuery from 'lib/api/useApiQuery';
+import replaceTokenType from 'lib/token/replaceTokenType';
 
 import { calculateUsdValue } from './tokenUtils';
 
@@ -12,17 +15,68 @@ export default function useFetchTokens({ hash }: Props) {
   const erc20query = useApiQuery('address_tokens', {
     pathParams: { hash },
     queryParams: { type: 'RAMA-20' },
-    queryOptions: { enabled: Boolean(hash), refetchOnMount: false },
+    queryOptions: {
+      enabled: Boolean(hash),
+      refetchOnMount: false,
+      select: (data: AddressTokensResponse): AddressTokensResponse => {
+        return {
+          items: data.items.map((item) => {
+            return {
+              ...item,
+              token: {
+                ...item.token,
+                type: replaceTokenType(item.token.type),
+              },
+            };
+          }),
+          next_page_params: data.next_page_params,
+        };
+      },
+    },
   });
   const erc721query = useApiQuery('address_tokens', {
     pathParams: { hash },
     queryParams: { type: 'RAMA-721' },
-    queryOptions: { enabled: Boolean(hash), refetchOnMount: false },
+    queryOptions: {
+      enabled: Boolean(hash),
+      refetchOnMount: false,
+      select: (data: AddressTokensResponse): AddressTokensResponse => {
+        return {
+          items: data.items.map((item) => {
+            return {
+              ...item,
+              token: {
+                ...item.token,
+                type: replaceTokenType(item.token.type),
+              },
+            };
+          }),
+          next_page_params: data.next_page_params,
+        };
+      },
+    },
   });
   const erc1155query = useApiQuery('address_tokens', {
     pathParams: { hash },
     queryParams: { type: 'RAMA-1155' },
-    queryOptions: { enabled: Boolean(hash), refetchOnMount: false },
+    queryOptions: {
+      enabled: Boolean(hash),
+      refetchOnMount: false,
+      select: (data: AddressTokensResponse): AddressTokensResponse => {
+        return {
+          items: data.items.map((item) => {
+            return {
+              ...item,
+              token: {
+                ...item.token,
+                type: replaceTokenType(item.token.type),
+              },
+            };
+          }),
+          next_page_params: data.next_page_params,
+        };
+      },
+    },
   });
 
   const refetch = React.useCallback(() => {
@@ -42,6 +96,18 @@ export default function useFetchTokens({ hash }: Props) {
         isOverflow: Boolean(erc721query.data?.next_page_params),
       },
       'RAMA-1155': {
+        items: erc1155query.data?.items.map(calculateUsdValue) || [],
+        isOverflow: Boolean(erc1155query.data?.next_page_params),
+      },
+      'ERC-20': {
+        items: erc20query.data?.items.map(calculateUsdValue) || [],
+        isOverflow: Boolean(erc20query.data?.next_page_params),
+      },
+      'ERC-721': {
+        items: erc721query.data?.items.map(calculateUsdValue) || [],
+        isOverflow: Boolean(erc721query.data?.next_page_params),
+      },
+      'ERC-1155': {
         items: erc1155query.data?.items.map(calculateUsdValue) || [],
         isOverflow: Boolean(erc1155query.data?.next_page_params),
       },

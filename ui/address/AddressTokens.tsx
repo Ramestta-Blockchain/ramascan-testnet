@@ -13,6 +13,7 @@ import useIsMobile from 'lib/hooks/useIsMobile';
 import getQueryParamString from 'lib/router/getQueryParamString';
 import useSocketChannel from 'lib/socket/useSocketChannel';
 import useSocketMessage from 'lib/socket/useSocketMessage';
+import replaceTokenType from 'lib/token/replaceTokenType';
 import { ADDRESS_TOKEN_BALANCE_RAMA_1155, ADDRESS_TOKEN_BALANCE_RAMA_20, ADDRESS_TOKEN_BALANCE_RAMA_721 } from 'stubs/address';
 import { generateListStub } from 'stubs/utils';
 import { tokenTabsByType } from 'ui/pages/Address';
@@ -55,33 +56,75 @@ const AddressTokens = () => {
   const erc20Query = useQueryWithPages({
     resourceName: 'address_tokens',
     pathParams: { hash },
-    filters: { type: 'RAMA-20' },
+    filters: { type: 'ERC-20' },
     scrollRef,
     options: {
       refetchOnMount: false,
       placeholderData: generateListStub<'address_tokens'>(ADDRESS_TOKEN_BALANCE_RAMA_20, 10, { next_page_params: null }),
+      select: (data: AddressTokensResponse): AddressTokensResponse => {
+        return {
+          items: data.items.map((item) => {
+            return {
+              ...item,
+              token: {
+                ...item.token,
+                type: replaceTokenType(item.token.type),
+              },
+            };
+          }),
+          next_page_params: data.next_page_params,
+        };
+      },
     },
   });
 
   const erc721Query = useQueryWithPages({
     resourceName: 'address_tokens',
     pathParams: { hash },
-    filters: { type: 'RAMA-721' },
+    filters: { type: 'ERC-721' },
     scrollRef,
     options: {
       refetchOnMount: false,
       placeholderData: generateListStub<'address_tokens'>(ADDRESS_TOKEN_BALANCE_RAMA_721, 10, { next_page_params: null }),
+      select: (data: AddressTokensResponse): AddressTokensResponse => {
+        return {
+          items: data.items.map((item) => {
+            return {
+              ...item,
+              token: {
+                ...item.token,
+                type: replaceTokenType(item.token.type),
+              },
+            };
+          }),
+          next_page_params: data.next_page_params,
+        };
+      },
     },
   });
 
   const erc1155Query = useQueryWithPages({
     resourceName: 'address_tokens',
     pathParams: { hash },
-    filters: { type: 'RAMA-1155' },
+    filters: { type: 'ERC-1155' },
     scrollRef,
     options: {
       refetchOnMount: false,
       placeholderData: generateListStub<'address_tokens'>(ADDRESS_TOKEN_BALANCE_RAMA_1155, 10, { next_page_params: null }),
+      select: (data: AddressTokensResponse): AddressTokensResponse => {
+        return {
+          items: data.items.map((item) => {
+            return {
+              ...item,
+              token: {
+                ...item.token,
+                type: replaceTokenType(item.token.type),
+              },
+            };
+          }),
+          next_page_params: data.next_page_params,
+        };
+      },
     },
   });
 

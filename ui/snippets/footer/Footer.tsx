@@ -22,7 +22,7 @@ import NetworkAddToWallet from 'ui/shared/NetworkAddToWallet';
 
 import ColorModeToggler from '../header/ColorModeToggler';
 import FooterLinkItem from './FooterLinkItem';
-import getApiVersionUrl from './utils/getApiVersionUrl';
+// import getApiVersionUrl from './utils/getApiVersionUrl';
 
 const MAX_LINKS_COLUMNS = 3;
 
@@ -35,7 +35,7 @@ const Footer = () => {
       staleTime: Infinity,
     },
   });
-  const apiVersionUrl = getApiVersionUrl(backendVersionData?.backend_version);
+  // const apiVersionUrl = getApiVersionUrl(backendVersionData?.backend_version);
   const issueUrl = useIssueUrl(backendVersionData?.backend_version);
   const BLOCKSCOUT_LINKS = [
     {
@@ -120,11 +120,11 @@ const Footer = () => {
         Ramestta is a PoS Blockchain with layer 2 solution for building dApp and connecting EVM-compatible blockchain, it a faster Blockahin for the Future.
         </Text>
         <VStack spacing={ 1 } mt={ 6 } alignItems="start">
-          { apiVersionUrl && (
+          { /* { apiVersionUrl && (
             <Text fontSize="xs">
                 Backend: <Link href={ apiVersionUrl } target="_blank">{ backendVersionData?.backend_version }</Link>
             </Text>
-          ) }
+          ) } */ }
           { (config.UI.footer.frontendVersion || config.UI.footer.frontendCommit) && (
             <Text fontSize="xs">
               Frontend: <Link href={ FRONT_VERSION_URL } target="_blank">{ config.UI.footer.frontendVersion }</Link>

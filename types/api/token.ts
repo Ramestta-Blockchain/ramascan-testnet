@@ -1,7 +1,7 @@
 import type { TokenInfoApplication } from './account';
 import type { AddressParam } from './addressParams';
 
-export type TokenType = 'RAMA-20' | 'RAMA-721' | 'RAMA-1155';
+export type TokenType = 'RAMA-20' | 'RAMA-721' | 'RAMA-1155'|'ERC-20' | 'ERC-721'| 'ERC-1155';
 
 export interface TokenInfo<T extends TokenType = TokenType> {
   address: string;

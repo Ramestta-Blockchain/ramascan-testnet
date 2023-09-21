@@ -113,7 +113,11 @@ const Tokens = () => {
 
   const onTypeChange = useCallback((value: Array<TokenType>) => {
     onFilterChange({ q: debouncedFilter, type: value });
-    setType(value);
+    const chnageValue: Array<TokenType> = value.map((item: TokenType) => {
+      return replaceTokenType(item);
+
+    });
+    setType(chnageValue);
   }, [ debouncedFilter, onFilterChange ]);
 
   const onSort = useCallback((value?: TokensSortingValue) => {

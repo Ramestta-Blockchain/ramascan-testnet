@@ -34,6 +34,9 @@ export const tokenTabsByType: Record<TokenType, string> = {
   'RAMA-20': 'tokens_erc20',
   'RAMA-721': 'tokens_erc721',
   'RAMA-1155': 'tokens_erc1155',
+  'ERC-20': 'tokens_erc20',
+  'ERC-721': 'tokens_erc721',
+  'ERC-1155': 'tokens_erc1155',
 } as const;
 
 const TOKEN_TABS = Object.values(tokenTabsByType);
