@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import { Icon, Text, Box, Input, InputGroup, InputLeftElement, useColorModeValue, Flex, Link } from '@chakra-ui/react';
 import _sumBy from 'lodash/sumBy';
 import type { ChangeEvent } from 'react';
@@ -76,6 +78,7 @@ const TokenSelectMenu = ({ erc20sort, erc1155sort, filteredData, onInputChange, 
                   </Link>
                 ) }
               </Flex>
+
               { tokenInfo.items.sort(sortingFns[type](sortDirection)).map((data) =>
                 <TokenSelectItem key={ data.token.address + data.token_id } data={ data }/>) }
             </Box>

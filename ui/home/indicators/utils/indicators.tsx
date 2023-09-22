@@ -29,7 +29,7 @@ const dailyTxsIndicator: TChainIndicator<'homepage_chart_txs'> = {
 
 const nativeTokenData = {
   name: config.chain.currency.name || '',
-  icon_url: '',
+  icon_url: '/static/ramestta_32x32_mm_icon.svg',
 };
 
 const coinPriceIndicator: TChainIndicator<'homepage_chart_market'> = {

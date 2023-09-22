@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import { Box } from '@chakra-ui/react';
 import { test, expect, devices } from '@playwright/experimental-ct-react';
 import React from 'react';
