@@ -35,7 +35,7 @@ const getConfig = () => {
       },
       blockExplorers: {
         'default': {
-          name: 'Blockscout',
+          name: 'Ramascan',
           url: config.app.baseUrl,
         },
       },

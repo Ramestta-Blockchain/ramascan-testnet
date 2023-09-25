@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 
 import type { SocketMessage } from 'lib/socket/types';
+import type { TokenTransfer } from 'types/api/tokenTransfer';
 import type { Transaction } from 'types/api/transaction';
 
 import type { ResourceError } from 'lib/api/resources';
@@ -12,6 +13,7 @@ import delay from 'lib/delay';
 import getQueryParamString from 'lib/router/getQueryParamString';
 import useSocketChannel from 'lib/socket/useSocketChannel';
 import useSocketMessage from 'lib/socket/useSocketMessage';
+import replaceTokenType from 'lib/token/replaceTokenType';
 import { TX } from 'stubs/tx';
 
 interface Params {
@@ -35,20 +37,20 @@ export default function useFetchTxInfo({ onTxStatusUpdate, updateDelay }: Params
       enabled: Boolean(hash),
       refetchOnMount: false,
       placeholderData: TX,
-      // select :(data : Transaction):Transaction => {
-      //   return {
-      //     items: data.items.map((item) => {
-      //       return {
-      //         ...item,
-      //         token:{
-      //             ...item.token,
-      //             type:replaceTokenType(item.token.type)
-      //           }
-      //         }
-      //      }) as TokenTransfer[],
-      //     next_page_params: data.next_page_params
-      //   }
-      // }
+      select: (data: Transaction): Transaction => {
+        return {
+          ...data,
+          token_transfers: data.token_transfers?.map((item) => {
+            return {
+              ...item,
+              token: {
+                ...item.token,
+                type: replaceTokenType(item.token.type),
+              },
+            };
+          }) as Array<TokenTransfer>,
+        };
+      },
     },
   });
   const { data, isError, isLoading } = queryResult;

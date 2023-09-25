@@ -60,7 +60,11 @@ const TxTokenTransfer = () => {
 
   const handleTypeFilterChange = React.useCallback((nextValue: Array<TokenType>) => {
     tokenTransferQuery.onFilterChange({ type: nextValue });
-    setTypeFilter(nextValue);
+    const changeValue: Array<TokenType> = nextValue.map((item: TokenType) => {
+      return replaceTokenType(item);
+
+    });
+    setTypeFilter(changeValue);
   }, [ tokenTransferQuery ]);
 
   if (!txsInfo.isLoading && !txsInfo.isPlaceholderData && !txsInfo.isError && !txsInfo.data.status) {

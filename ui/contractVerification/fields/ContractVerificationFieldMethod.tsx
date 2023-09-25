@@ -104,7 +104,7 @@ const ContractVerificationFieldMethod = ({ control, isDisabled, methods }: Props
         <div>
           <Box mb={ 5 }>
             <chakra.span fontWeight={ 500 } fontSize="lg" fontFamily="heading">
-            Currently, Blockscout supports { methods.length } contract verification methods
+            Currently, Ramascan supports { methods.length } contract verification methods
             </chakra.span>
             <Popover trigger="hover" isLazy placement={ isMobile ? 'bottom-end' : 'right-start' } offset={ [ -8, 8 ] }>
               <PopoverTrigger>
@@ -117,7 +117,7 @@ const ContractVerificationFieldMethod = ({ control, isDisabled, methods }: Props
                   <PopoverArrow bgColor={ tooltipBg }/>
                   <PopoverBody color="white">
                     <DarkMode>
-                      <span>Currently, Blockscout supports { methods.length } methods:</span>
+                      <span>Currently, Ramascan supports { methods.length } methods:</span>
                       <OrderedList>
                         { methods.map(renderPopoverListItem) }
                       </OrderedList>

@@ -117,7 +117,7 @@ const Footer = () => {
           <Link fontSize="xs" href="https://www.ramestta.com/">ramestta.com</Link>
         </Box>
         <Text mt={ 3 } maxW={{ base: 'unset', lg: '470px' }} fontSize="xs">
-        Ramestta is a PoS Blockchain with layer 2 solution for building dApp and connecting EVM-compatible blockchain, it a faster Blockahin for the Future.
+        Ramestta is a PoS Blockchain with layer 2 solution for building dApp and connecting EVM-compatible blockchain, it is a faster Blockahin for the Future.
         </Text>
         <VStack spacing={ 1 } mt={ 6 } alignItems="start">
           { /* { apiVersionUrl && (
@@ -140,7 +140,7 @@ const Footer = () => {
         }
       >
         <Box minW="160px" w={ config.UI.footer.links ? '160px' : '100%' }>
-          { config.UI.footer.links && <Text fontWeight={ 500 } mb={ 3 }>Blockscout</Text> }
+          { config.UI.footer.links && <Text fontWeight={ 500 } mb={ 3 }>Ramascan</Text> }
           <Grid
             gap={ 1 }
             gridTemplateColumns={ config.UI.footer.links ? '160px' : { base: 'repeat(auto-fill, 160px)', lg: 'repeat(3, 160px)' } }

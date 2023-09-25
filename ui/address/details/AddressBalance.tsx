@@ -66,13 +66,13 @@ const AddressBalance = ({ data, isLoading }: Props) => {
 
   const tokenData = React.useMemo(() => ({
     name: config.chain.currency.name || '',
-    icon_url: '',
+    icon_url: '/static/ramestta_32x32_mm_icon.svg',
   }), [ ]);
 
   return (
     <DetailsInfoItem
       title="Balance"
-      hint={ `Address balance in ${ config.chain.currency.symbol }. Doesn't include ERC20, ERC721 and ERC1155 tokens` }
+      hint={ `Address balance in ${ config.chain.currency.symbol }. Doesn't include RAMA20, RAMA721 and RAMA1155 tokens` }
       flexWrap="nowrap"
       alignItems="flex-start"
       isLoading={ isLoading }

@@ -15,6 +15,7 @@ const TAB_LIST_PROPS = {
 };
 
 const AddressContract = ({ tabs }: Props) => {
+
   const fallback = React.useCallback(() => {
     const noProviderTabs = tabs.filter(({ id }) => id === 'contact_code');
     return (

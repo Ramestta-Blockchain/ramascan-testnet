@@ -14,7 +14,7 @@ interface Props {
 export default function useFetchTokens({ hash }: Props) {
   const erc20query = useApiQuery('address_tokens', {
     pathParams: { hash },
-    queryParams: { type: 'RAMA-20' },
+    queryParams: { type: replaceTokenType('RAMA-20') },
     queryOptions: {
       enabled: Boolean(hash),
       refetchOnMount: false,
@@ -36,7 +36,7 @@ export default function useFetchTokens({ hash }: Props) {
   });
   const erc721query = useApiQuery('address_tokens', {
     pathParams: { hash },
-    queryParams: { type: 'RAMA-721' },
+    queryParams: { type: replaceTokenType('RAMA-721') },
     queryOptions: {
       enabled: Boolean(hash),
       refetchOnMount: false,
@@ -58,7 +58,7 @@ export default function useFetchTokens({ hash }: Props) {
   });
   const erc1155query = useApiQuery('address_tokens', {
     pathParams: { hash },
-    queryParams: { type: 'RAMA-1155' },
+    queryParams: { type: replaceTokenType('RAMA-1155') },
     queryOptions: {
       enabled: Boolean(hash),
       refetchOnMount: false,
@@ -100,16 +100,16 @@ export default function useFetchTokens({ hash }: Props) {
         isOverflow: Boolean(erc1155query.data?.next_page_params),
       },
       'ERC-20': {
-        items: erc20query.data?.items.map(calculateUsdValue) || [],
-        isOverflow: Boolean(erc20query.data?.next_page_params),
+        items: [],
+        isOverflow: false,
       },
       'ERC-721': {
-        items: erc721query.data?.items.map(calculateUsdValue) || [],
-        isOverflow: Boolean(erc721query.data?.next_page_params),
+        items: [],
+        isOverflow: false,
       },
       'ERC-1155': {
-        items: erc1155query.data?.items.map(calculateUsdValue) || [],
-        isOverflow: Boolean(erc1155query.data?.next_page_params),
+        items: [],
+        isOverflow: false,
       },
     };
   }, [ erc1155query.data, erc20query.data, erc721query.data ]);

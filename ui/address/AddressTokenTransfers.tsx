@@ -119,12 +119,11 @@ const AddressTokenTransfers = ({ scrollRef, overloadCount = OVERLOAD_COUNT }: Pr
 
   const handleTypeFilterChange = React.useCallback((nextValue: Array<TokenType>) => {
     onFilterChange({ ...filters, type: nextValue });
-    const chnageValue: Array<TokenType> = nextValue.map((item: TokenType) => {
+    const changeValue: Array<TokenType> = nextValue.map((item: TokenType) => {
       return replaceTokenType(item);
 
     });
-
-    setFilters((prevState) => ({ ...prevState, type: chnageValue }));
+    setFilters((prevState) => ({ ...prevState, type: changeValue }));
   }, [ filters, onFilterChange ]);
 
   const handleAddressFilterChange = React.useCallback((nextValue: string) => {

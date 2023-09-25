@@ -19,7 +19,7 @@ const WatchListAddressItem = ({ item, isLoading }: { item: WatchlistAddress; isL
 
   const nativeTokenData = React.useMemo(() => ({
     name: config.chain.currency.name || '',
-    icon_url: '',
+    icon_url: '/static/ramestta_32x32_mm_icon.svg',
   }), [ ]);
 
   const { usdBn: usdNative } = getCurrencyValue({ value: item.address_balance, accuracy: 2, accuracyUsd: 2, exchangeRate: item.exchange_rate });

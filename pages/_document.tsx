@@ -46,10 +46,10 @@ class MyDocument extends Document {
           <meta
             property="og:description"
             // eslint-disable-next-line max-len
-            content="Blockscout is the #1 open-source blockchain explorer available today. 100+ chains and counting rely on Blockscout data availability, APIs, and ecosystem tools to support their networks."
+            content="Ramascan is the #1 open-source blockchain explorer available today. 100+ dapps and counting rely on Ramascan data availability, APIs, and ecosystem tools to support their dapps."
           />
           <meta property="og:image" content={ config.app.baseUrl + '/static/og.png' }/>
-          <meta property="og:site_name" content="Blockscout"/>
+          <meta property="og:site_name" content="Ramascan"/>
           <meta property="og:type" content="website"/>
           <meta name="twitter:card" content="summary_large_image"/>
           <meta property="twitter:image" content={ config.app.baseUrl + '/static/og_twitter.png' }/>
