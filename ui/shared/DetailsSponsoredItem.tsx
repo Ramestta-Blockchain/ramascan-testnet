@@ -3,7 +3,6 @@ import React from 'react';
 
 import * as cookies from 'lib/cookies';
 import useIsMobile from 'lib/hooks/useIsMobile';
-import AdBanner from 'ui/shared/ad/AdBanner';
 import DetailsInfoItem from 'ui/shared/DetailsInfoItem';
 
 interface Props {
@@ -20,9 +19,7 @@ const DetailsSponsoredItem = ({ isLoading }: Props) => {
 
   if (isMobile) {
     return (
-      <GridItem mt={ 5 }>
-        <AdBanner mx="auto" isLoading={ isLoading } display="flex" justifyContent="center"/>
-      </GridItem>
+      <GridItem mt={ 5 }/>
     );
   }
 
@@ -32,7 +29,6 @@ const DetailsSponsoredItem = ({ isLoading }: Props) => {
       hint="Sponsored banner advertisement"
       isLoading={ isLoading }
     >
-      <AdBanner isLoading={ isLoading }/>
     </DetailsInfoItem>
   );
 };
