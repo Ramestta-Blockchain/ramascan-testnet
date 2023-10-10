@@ -1,7 +1,7 @@
 [
     {
         "title": "Ramestta",
-        "url": "https://v2.ramascan.com/",
+        "url": "https://ramascan.com/",
         "group": "Mainnets",
         "icon": "https://raw.githubusercontent.com/Ramestta-Blockchain/ramascan/main/public/static/ramestta_32x32_mm_icon.svg",
         "invertIconInDarkMode": true
