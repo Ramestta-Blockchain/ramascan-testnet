@@ -36,6 +36,7 @@ const NetworkMenuButton = ({ isMobile, isActive, onClick, className }: Props, re
         width="36px"
         height="36px"
         padding="10px"
+        marginTop="3px"
         color={ isActive ? iconColorMobile : defaultIconColor }
         _hover={{ color: isMobile ? undefined : 'link_hovered' }}
         cursor="pointer"

@@ -25,7 +25,7 @@ const ChainIndicatorItem = ({ id, title, value, icon, isSelected, onClick, stats
   const activeBgColor = isMobile ? activeBgColorMobile : activeBgColorDesktop;
 
   const handleClick = React.useCallback(() => {
-    onClick(id);
+    id !== 'market_cap' ? onClick(id) : null; // disbale market cap charts
   }, [ id, onClick ]);
 
   const valueContent = (() => {

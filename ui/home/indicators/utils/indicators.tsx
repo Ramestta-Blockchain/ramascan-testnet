@@ -53,7 +53,10 @@ const coinPriceIndicator: TChainIndicator<'homepage_chart_market'> = {
 const marketPriceIndicator: TChainIndicator<'homepage_chart_market'> = {
   id: 'market_cap',
   title: 'Market cap',
-  value: (stats) => '$' + Number(stats.market_cap).toLocaleString(undefined, { maximumFractionDigits: 0, notation: 'compact' }),
+  // value: (stats) => '$' + Number(stats.market_cap).toLocaleString(undefined, { maximumFractionDigits: 0, notation: 'compact' }),
+  value: (stats) => {
+    return '$' + Number(200003101 * Number(stats.coin_price)).toLocaleString(undefined, { maximumFractionDigits: 2, notation: 'compact' });
+  },
   icon: <Icon as={ globeIcon } boxSize={ 6 } bgColor="#6A5DCC" borderRadius="base" color="white"/>,
   // eslint-disable-next-line max-len
   hint: 'The total market value of a cryptocurrency\'s circulating supply. It is analogous to the free-float capitalization in the stock market. Market Cap = Current Price x Circulating Supply.',
@@ -67,6 +70,7 @@ const marketPriceIndicator: TChainIndicator<'homepage_chart_market'> = {
       valueFormatter: (x: number) => '$' + x.toLocaleString(undefined, { maximumFractionDigits: 0 }),
     } ]),
   },
+
 };
 
 const INDICATORS = [
