@@ -3,7 +3,7 @@
         "title": "Ramestta",
         "url": "https://ramascan.com/",
         "group": "Mainnets",
-        "icon": "https://raw.githubusercontent.com/Ramestta-Blockchain/ramascan/main/public/static/ramestta_32x32_mm_icon.svg",
+        "icon": "https://raw.githubusercontent.com/Ramestta-Blockchain/ramascan-testnet/main/public/static/ramestta_32x32_mm_icon.svg",
         "invertIconInDarkMode": false
     },
     {
@@ -11,7 +11,7 @@
         "url": "https://pingaksha.ramascan.com/",
         "group": "Testnets",
         "isActive": true,
-        "icon": "https://raw.githubusercontent.com/Ramestta-Blockchain/ramascan/main/public/static/ramestta_32x32_mm_icon.svg",
+        "icon": "https://raw.githubusercontent.com/Ramestta-Blockchain/ramascan-testnet/main/public/static/ramestta_32x32_mm_icon.svg",
         "invertIconInDarkMode": false
     }
 ]
